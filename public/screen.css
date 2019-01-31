@@ -10,3 +10,26 @@ header {
 h1 {
   flex: 1;
 }
+
+form {
+  margin: 0;
+}
+
+form.filter {
+  margin-bottom: 1rem;
+}
+
+.key {
+  padding: 0.5rem;
+  border-bottom: 1px solid #ddd;
+  display: flex;
+  align-items: center;
+}
+
+.key a {
+  flex: 1;
+}
+
+.key:nth-child(even) {
+  background: #f9f9f9;
+}
