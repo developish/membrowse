@@ -1,3 +1,8 @@
+<form class="filter" method="get" action="/">
+  <input type="text" name="filter" value="<%= @filter %>">
+  <input value="Filter" type="submit">
+</form>
+
 <ul>
   <% @lines.each do |line| %>
     <li><a href="/<%= line %>"><%= line %></li>

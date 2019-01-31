@@ -9,6 +9,13 @@ client = Dalli::Client.new('localhost')
 
 get "/" do
   @lines = `memdump --server localhost`.split("\n")
+
+  if params['filter']
+    @filter = params['filter']
+    @regexp = Regexp.new(@filter, true)
+    @lines = @lines.select { |line| @regexp.match?(line) }
+  end
+
   erb :index
 end
 
