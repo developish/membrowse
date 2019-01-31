@@ -1,1 +1,8 @@
+<h2><%= @key %></h2>
+
+<form method="post" action="/<%= @key %>">
+  <input type="hidden" name="_method" value="delete">
+  <input value="Delete" type="submit">
+</form>
+
 <%= @data %>

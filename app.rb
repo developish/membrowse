@@ -1,6 +1,10 @@
 require "sinatra"
 require "dalli"
 
+configure do
+  set :method_override, true
+end
+
 client = Dalli::Client.new('localhost')
 
 get "/" do
@@ -14,6 +18,13 @@ post "/flush" do
 end
 
 get "/*" do
-  @data = client.fetch(params['splat'][0])
+  @key = params['splat'][0]
+  @data = client.fetch(@key)
   erb :show
+end
+
+delete "/*" do
+  @key = params['splat'][0]
+  client.delete(@key)
+  redirect "/"
 end
