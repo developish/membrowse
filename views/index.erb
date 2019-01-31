@@ -3,8 +3,15 @@
   <input value="Filter" type="submit">
 </form>
 
-<ul>
+<div class="keys">
   <% @lines.each do |line| %>
-    <li><a href="/<%= line %>"><%= line %></li>
+    <div class="key">
+      <a href="/<%= line %>"><%= line %></a>
+
+      <form method="post" action="/<%= line %>" style="display: inline">
+        <input type="hidden" name="_method" value="delete">
+        <input value="Delete" type="submit">
+      </form>
+    </div>
   <% end %>
-</ul>
+</div>
